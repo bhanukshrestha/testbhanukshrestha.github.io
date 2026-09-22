@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Bhanu Shrestha - Industrial Engineer, Data Scientist and ETRM Business Analyst based in Kathmandu, Nepal.">
+<meta name="author" content="Bhanu Shrestha">
+<meta property="og:title" content="Bhanu Shrestha">
+<meta property="og:description" content="Industrial Engineer, Data Scientist and ETRM Business Analyst based in Kathmandu, Nepal.">
+<meta property="og:type" content="website">
+<title>Bhanu Shrestha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#F5F7F5;
+    --surface:#FFFFFF;
+    --surface-2:#EBEFED;
+    --ink:#0E1C1A;
+    --ink-2:#3A4D4A;
+    --muted:#6B807C;
+    --line:#D6DEDB;
+    --line-strong:#B9C6C2;
+    --accent:#0E6E5B;
+    --accent-ink:#0B5647;
+    --accent-soft:rgba(14,110,91,.10);
+    --signal:#B2650F;
+    --shadow:0 1px 2px rgba(14,28,26,.05), 0 8px 24px -16px rgba(14,28,26,.35);
+
+    --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --f-body:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+    --wrap:1120px;
+    --gutter:20px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0A1312;
+      --surface:#101C1A;
+      --surface-2:#162321;
+      --ink:#E9F0ED;
+      --ink-2:#B6C5C1;
+      --muted:#7F938F;
+      --line:#21322F;
+      --line-strong:#2E4340;
+      --accent:#3FBFA2;
+      --accent-ink:#6BD5BC;
+      --accent-soft:rgba(63,191,162,.13);
+      --signal:#E0A250;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0A1312;
+    --surface:#101C1A;
+    --surface-2:#162321;
+    --ink:#E9F0ED;
+    --ink-2:#B6C5C1;
+    --muted:#7F938F;
+    --line:#21322F;
+    --line-strong:#2E4340;
+    --accent:#3FBFA2;
+    --accent-ink:#6BD5BC;
+    --accent-soft:rgba(63,191,162,.13);
+    --signal:#E0A250;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  }
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--f-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
+
+  h1,h2,h3,h4{font-family:var(--f-display);font-variation-settings:"wdth" 112;margin:0;text-wrap:balance;line-height:1.1}
+  h1{font-weight:800;font-size:clamp(2.4rem,6.4vw,4.1rem);letter-spacing:-.022em}
+  h2{font-weight:700;font-size:clamp(1.55rem,3.4vw,2.05rem);letter-spacing:-.015em}
+  h3{font-weight:700;font-size:1.12rem;letter-spacing:-.008em}
+  p{margin:0}
+  a{color:inherit}
+
+  .mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+    background:color-mix(in srgb, var(--ground) 88%, transparent);
+    backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;gap:20px;min-height:60px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-variation-settings:"wdth" 108;letter-spacing:-.01em;margin-right:auto}
+  .sigil{
+    width:28px;height:28px;border-radius:7px;display:grid;place-items:center;
+    background:var(--accent);color:var(--surface);
+    font-family:var(--f-display);font-size:.72rem;font-weight:800;letter-spacing:.02em;
+  }
+  :root[data-theme="dark"] .sigil,
+  :root:not([data-theme="light"]) .sigil{color:#08221C}
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .sigil{color:#fff}}
+  .nav-links{display:flex;gap:4px;align-items:center}
+  .nav-links a{
+    text-decoration:none;color:var(--ink-2);font-size:.86rem;font-weight:500;
+    padding:7px 11px;border-radius:7px;transition:color .18s,background .18s;
+  }
+  .nav-links a:hover{color:var(--ink);background:var(--surface-2)}
+  .nav-links a.active{color:var(--accent-ink);background:var(--accent-soft)}
+  @media (max-width:880px){.nav-links{display:none}}
+  .toggle{
+    display:inline-grid;place-items:center;width:34px;height:34px;flex:0 0 auto;
+    border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink-2);
+    cursor:pointer;transition:color .18s,border-color .18s;
+  }
+  .toggle:hover{color:var(--ink);border-color:var(--line-strong)}
+  .toggle svg{width:16px;height:16px;display:block}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  /* ---------- hero ---------- */
+  .hero{padding-block:clamp(44px,7vw,82px) clamp(40px,6vw,70px)}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,4vw,56px);align-items:start}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}}
+  .eyebrow{color:var(--accent-ink);display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:1px;background:currentColor;flex:0 0 auto}
+  .hero h1{margin-block:16px 14px}
+  .roles{
+    font-family:var(--f-display);font-variation-settings:"wdth" 104;font-weight:600;
+    font-size:clamp(1rem,2.1vw,1.2rem);color:var(--ink-2);letter-spacing:-.006em;
+  }
+  .roles span{white-space:nowrap}
+  .roles i{font-style:normal;color:var(--accent);padding-inline:8px}
+  .lede{margin-top:22px;max-width:58ch;color:var(--ink-2);font-size:1.03rem}
+  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    font-size:.9rem;font-weight:600;padding:10px 18px;border-radius:9px;
+    border:1px solid transparent;transition:transform .15s,background .18s,border-color .18s;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--accent);color:var(--surface)}
+  :root[data-theme="dark"] .btn-primary,
+  :root:not([data-theme="light"]) .btn-primary{color:#08221C}
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .btn-primary{color:#fff}}
+  .btn-primary:hover{background:var(--accent-ink)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{background:var(--surface-2)}
+  .socials{display:flex;gap:8px;margin-top:22px}
+  .socials a{
+    width:36px;height:36px;display:grid;place-items:center;border-radius:9px;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
+    transition:color .18s,border-color .18s,transform .15s;
+  }
+  .socials a:hover{color:var(--accent-ink);border-color:var(--accent);transform:translateY(-2px)}
+  .socials svg{width:17px;height:17px;display:block}
+
+  /* profile plate */
+  .plate{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .plate-top{display:flex;align-items:center;gap:14px;padding:20px 20px 16px}
+  .monogram{
+    width:60px;height:60px;flex:0 0 auto;border-radius:12px;display:grid;place-items:center;
+    background:var(--accent-soft);border:1px solid var(--accent);color:var(--accent-ink);
+    font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 118;font-size:1.32rem;letter-spacing:.01em;
+  }
+  .plate-top div p{font-size:.92rem;color:var(--ink-2)}
+  .plate-rows{border-top:1px solid var(--line)}
+  .prow{display:flex;gap:14px;padding:11px 20px;border-bottom:1px solid var(--line);align-items:baseline}
+  .prow dt{flex:0 0 78px;color:var(--muted)}
+  .prow dd{margin:0;font-size:.9rem;color:var(--ink);font-weight:500}
+  .curve{padding:16px 20px 18px}
+  .curve figcaption{margin-top:8px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+  .curve svg{width:100%;height:auto;display:block}
+
+  /* ---------- sections ---------- */
+  .section{border-top:1px solid var(--line);padding-block:clamp(48px,6.5vw,76px);scroll-margin-top:76px}
+  .sgrid{display:grid;grid-template-columns:186px 1fr;gap:clamp(24px,4vw,52px);align-items:start}
+  @media (max-width:860px){.sgrid{grid-template-columns:1fr;gap:20px}}
+  .slabel{position:sticky;top:calc(76px + env(safe-area-inset-top,0px))}
+  @media (max-width:860px){.slabel{position:static}}
+  .slabel .mono{color:var(--accent-ink);display:block}
+  .slabel p{margin-top:8px;color:var(--muted);font-size:.84rem;line-height:1.5}
+  .scontent > * + *{margin-top:20px}
+  .prose{color:var(--ink-2);max-width:64ch}
+  .prose + .prose{margin-top:14px}
+
+  /* experience */
+  .role{border-left:2px solid var(--accent);padding-left:22px}
+  @media (max-width:520px){.role{padding-left:16px}}
+  .role-head{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline}
+  .role-head .mono{color:var(--muted)}
+  .role .org{color:var(--accent-ink);font-weight:600;font-size:.98rem;margin-top:3px}
+  .role .place{color:var(--muted);font-size:.88rem}
+  .bullets{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:11px}
+  .bullets li{position:relative;padding-left:20px;color:var(--ink-2);font-size:.96rem}
+  .bullets li::before{
+    content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:2px;
+    background:var(--accent);opacity:.75;
+  }
+
+  /* skills */
+  .skill-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  @media (max-width:660px){.skill-groups{grid-template-columns:1fr}}
+  .sgroup{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .sgroup h3{font-size:.98rem}
+  .sgroup .mono{color:var(--muted);display:block;margin-bottom:6px}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+  .tag{
+    font-size:.82rem;font-weight:500;padding:4px 10px;border-radius:999px;
+    background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);
+  }
+
+  /* education */
+  .edu{display:grid;gap:0}
+  .edu-item{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .edu-item:first-child{padding-top:0}
+  .edu-item:last-child{border-bottom:0;padding-bottom:0}
+  @media (max-width:520px){.edu-item{grid-template-columns:1fr;gap:6px}}
+  .edu-year{color:var(--muted);padding-top:3px}
+  .edu-item .inst{color:var(--ink-2);font-size:.92rem;margin-top:3px}
+  .pill{
+    display:inline-block;margin-top:8px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.09em;
+    text-transform:uppercase;padding:3px 8px;border-radius:5px;
+    background:var(--accent-soft);color:var(--accent-ink);border:1px solid var(--accent)
+  }
+
+  /* projects */
+  .pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  @media (max-width:660px){.pgrid{grid-template-columns:1fr}}
+  .pcard{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;
+    display:flex;flex-direction:column;gap:9px;
+  }
+  .pcard p{color:var(--ink-2);font-size:.93rem}
+  .placeholder{
+    border:1px dashed var(--line-strong);border-radius:12px;padding:26px;
+    background:var(--surface);
+  }
+  .placeholder .mono{color:var(--signal)}
+  .placeholder h3{margin-block:10px 8px}
+  .placeholder p{color:var(--ink-2);max-width:56ch}
+  .inline-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px}
+  .inline-links a{
+    font-size:.9rem;font-weight:600;color:var(--accent-ink);text-decoration:none;
+    border-bottom:1px solid var(--accent);padding-bottom:2px;
+  }
+  .inline-links a:hover{color:var(--ink)}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  @media (max-width:720px){.contact-grid{grid-template-columns:1fr}}
+  .ccard{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;
+    display:block;text-decoration:none;transition:border-color .18s,transform .15s;
+  }
+  a.ccard:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .ccard .mono{color:var(--muted);display:block;margin-bottom:7px}
+  .ccard strong{font-weight:600;font-size:.98rem;word-break:break-word}
+
+  footer{border-top:1px solid var(--line);padding-block:26px 34px}
+  .foot{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;color:var(--muted);font-size:.85rem}
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="sigil">BS</span>Bhanu&nbsp;Shrestha</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+      <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"></path></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <p class="mono eyebrow">Kathmandu, Nepal</p>
+        <h1>Bhanu Shrestha</h1>
+        <p class="roles">
+          <span>Industrial Engineer</span><i>/</i><span>Data Scientist</span><i>/</i><span>ETRM Business Analyst</span>
+        </p>
+        <p class="lede">
+          I work where process engineering meets data, in energy trading and risk management.
+          My days are spent turning how traders, schedulers and settlement teams actually operate
+          into requirements, forecasts and reporting that survive contact with production.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="#experience">See experience</a>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/bhanukshrestha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76V21h-4v-5.5c0-1.31-.02-3-1.9-3-1.9 0-2.2 1.43-2.2 2.9V21h-4z"></path></svg>
+          </a>
+          <a href="https://github.com/bhanukshrestha" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"></path></svg>
+          </a>
+          <a href="https://www.kaggle.com/bhanukshrestha" target="_blank" rel="noopener noreferrer" aria-label="Kaggle">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.2 2h2.5v12.2l5.4-5.5h3.1l-5.6 5.5 5.9 7.8h-3.1l-4.4-6-1.3 1.3V22H7.2z"></path></svg>
+          </a>
+          <a href="mailto:bhanukshrestha10@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect><path d="m3 7 9 6 9-6"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="plate">
+        <div class="plate-top">
+          <div class="monogram">BS</div>
+          <div>
+            <h3>Sr. Business Analyst</h3>
+            <p>Hitachi Energy</p>
+          </div>
+        </div>
+        <dl class="plate-rows">
+          <div class="prow"><dt class="mono">Based</dt><dd>Kathmandu, UTC+05:45</dd></div>
+          <div class="prow"><dt class="mono">Domain</dt><dd>Energy trading &amp; risk</dd></div>
+          <div class="prow"><dt class="mono">Since</dt><dd>August 2017</dd></div>
+          <div class="prow"><dt class="mono">Focus</dt><dd>Forecasting &amp; optimisation</dd></div>
+        </dl>
+        <figure class="curve">
+          <svg viewBox="0 0 320 92" role="img" aria-label="Illustrative 24-hour system load curve, peaking in the evening">
+            <line x1="8" y1="78.5" x2="312" y2="78.5" stroke="var(--line-strong)" stroke-width="1"></line>
+            <line x1="8" y1="49" x2="312" y2="49" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4"></line>
+            <line x1="8" y1="20" x2="312" y2="20" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4"></line>
+            <path fill="var(--accent-soft)" stroke="none"
+              d="M8,78 L8,47.8 L33.3,51.9 L58.7,53.6 L84,49 L109.3,38.6 L134.7,35.1 L160,36.2 L185.3,37.4 L210.7,33.9 L236,22.9 L261.3,20 L286.7,32.8 L312,43.2 L312,78 Z"></path>
+            <path fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"
+              d="M8,47.8 L33.3,51.9 L58.7,53.6 L84,49 L109.3,38.6 L134.7,35.1 L160,36.2 L185.3,37.4 L210.7,33.9 L236,22.9 L261.3,20 L286.7,32.8 L312,43.2"></path>
+            <circle cx="261.3" cy="20" r="3.2" fill="var(--signal)"></circle>
+            <text x="253" y="13" fill="var(--signal)" font-family="IBM Plex Mono, monospace" font-size="7" text-anchor="end">peak 19:00</text>
+            <text x="8" y="89" fill="var(--muted)" font-family="IBM Plex Mono, monospace" font-size="7">00:00</text>
+            <text x="312" y="89" fill="var(--muted)" font-family="IBM Plex Mono, monospace" font-size="7" text-anchor="end">24:00</text>
+          </svg>
+          <figcaption class="mono"><span>Daily load shape</span><span>illustrative</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="wrap section" id="about">
+    <div class="sgrid">
+      <div class="slabel">
+        <span class="mono">About</span>
+        <p>Engineering background, data practice, energy domain.</p>
+      </div>
+      <div class="scontent">
+        <h2>Process thinking, applied to energy data</h2>
+        <p class="prose">
+          I trained as an industrial engineer, which is really a training in looking at a system, finding where
+          time and value leak out of it, and fixing the process rather than the symptom. I have spent my career
+          since 2017 at Hitachi Energy applying that lens to energy trading and risk management — a domain where
+          the process is a trade lifecycle and the leaks show up as manual reconciliation, stale positions and
+          reports nobody trusts.
+        </p>
+        <p class="prose">
+          The data science came from the same direction. Forecasting demand and volumes, testing models against
+          what actually happened, and building the reporting layer that puts those numbers in front of people who
+          have to decide something before the market closes. I work mostly in Python, SQL and Power BI, inside
+          TRMTracker, and increasingly with LLM-assisted tooling for the documentation and analysis work that used
+          to eat whole afternoons.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="wrap section" id="experience">
+    <div class="sgrid">
+      <div class="slabel">
+        <span class="mono">Experience</span>
+        <p>Nine years in one domain, deepening rather than hopping.</p>
+      </div>
+      <div class="scontent">
+        <div class="role">
+          <div class="role-head">
+            <h3>Sr. Business Analyst</h3>
+            <span class="mono">Aug 2017 — Present</span>
+          </div>
+          <p class="org">Hitachi Energy</p>
+          <p class="place">Rotary Complex, Kathmandu, Nepal</p>
+          <ul class="bullets">
+            <li>Gather requirements from trading, scheduling and settlement users and translate them into functional specifications for TRMTracker, covering the lifecycle from deal capture through to invoicing.</li>
+            <li>Build forecasting and analytical models in Python and SQL, and deliver them as Power BI reporting used for position, exposure and volume analysis.</li>
+            <li>Apply Lean and Six Sigma methods to map recurring operational processes and cut manual handling out of reporting and reconciliation work.</li>
+            <li>Coordinate testing, UAT and release activity in JIRA across business stakeholders and engineering, keeping specification, test evidence and delivery in step.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="wrap section" id="skills">
+    <div class="sgrid">
+      <div class="slabel">
+        <span class="mono">Skills</span>
+        <p>What I reach for, grouped by the job it does.</p>
+      </div>
+      <div class="scontent">
+        <div class="skill-groups">
+          <div class="sgroup">
+            <span class="mono">01 · Analysis</span>
+            <h3>Data &amp; modelling</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">ML libraries</span><span class="tag">Forecasting</span><span class="tag">LLM</span></div>
+          </div>
+          <div class="sgroup">
+            <span class="mono">02 · Domain</span>
+            <h3>Energy trading &amp; risk</h3>
+            <div class="tags"><span class="tag">TRMTracker</span><span class="tag">ETRM</span><span class="tag">Trade lifecycle</span><span class="tag">Requirements &amp; UAT</span></div>
+          </div>
+          <div class="sgroup">
+            <span class="mono">03 · Engineering</span>
+            <h3>Process &amp; optimisation</h3>
+            <div class="tags"><span class="tag">Optimization</span><span class="tag">Six Sigma</span><span class="tag">Lean</span><span class="tag">Process mapping</span></div>
+          </div>
+          <div class="sgroup">
+            <span class="mono">04 · Delivery</span>
+            <h3>Reporting &amp; tooling</h3>
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">JIRA</span><span class="tag">Git</span><span class="tag">Cloud</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="wrap section" id="education">
+    <div class="sgrid">
+      <div class="slabel">
+        <span class="mono">Education</span>
+        <p>Industrial engineering first, then data science.</p>
+      </div>
+      <div class="scontent">
+        <div class="edu">
+          <div class="edu-item">
+            <span class="mono edu-year">2025</span>
+            <div>
+              <h3>Master's in Data Science</h3>
+              <p class="inst">Tribhuvan University — School of Mathematical Sciences</p>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="mono edu-year">2017</span>
+            <div>
+              <h3>B.E. Industrial Engineering</h3>
+              <p class="inst">Tribhuvan University — I.O.E. Thapathali Campus</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="wrap section" id="projects">
+    <div class="sgrid">
+      <div class="slabel">
+        <span class="mono">Projects</span>
+        <p>Selected work in forecasting, optimisation and ETRM.</p>
+      </div>
+      <div class="scontent">
+        <div class="placeholder">
+          <span class="mono">Status · in preparation</span>
+          <h3>Project write-ups are on the way</h3>
+          <p>
+            I am putting together shareable versions of forecasting, optimisation and ETRM work — the parts that
+            can leave the building. Until they are here, code and notebooks live on GitHub and Kaggle.
+          </p>
+          <div class="inline-links">
+            <a href="https://github.com/bhanukshrestha" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.kaggle.com/bhanukshrestha" target="_blank" rel="noopener noreferrer">Kaggle</a>
+          </div>
+        </div>
+
+        <!--
+          ADD A PROJECT: delete the .placeholder block above and uncomment this grid.
+          Copy one <article class="pcard"> per project.
+
+          <div class="pgrid">
+            <article class="pcard">
+              <span class="mono" style="color:var(--muted)">Forecasting</span>
+              <h3>Project name</h3>
+              <p>One or two sentences on what it does and what it produced.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span></div>
+              <div class="inline-links"><a href="#" target="_blank" rel="noopener noreferrer">View repo</a></div>
+            </article>
+          </div>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="wrap section" id="contact">
+    <div class="sgrid">
+      <div class="slabel">
+        <span class="mono">Contact</span>
+        <p>Open to conversations about ETRM, forecasting and analytics work.</p>
+      </div>
+      <div class="scontent">
+        <h2>Let's talk</h2>
+        <p class="prose">
+          The quickest route is email — I read everything, and reply to anything with a real question in it.
+        </p>
+        <div class="contact-grid">
+          <a class="ccard" href="mailto:bhanukshrestha10@gmail.com">
+            <span class="mono">Email</span>
+            <strong>bhanukshrestha10@gmail.com</strong>
+          </a>
+          <a class="ccard" href="tel:+9779840023864">
+            <span class="mono">Phone</span>
+            <strong>+977 9840023864</strong>
+          </a>
+          <div class="ccard">
+            <span class="mono">Location</span>
+            <strong>Kathmandu, Nepal</strong>
+          </div>
+        </div>
+        <div class="inline-links">
+          <a href="https://www.linkedin.com/in/bhanukshrestha/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/bhanukshrestha" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.kaggle.com/bhanukshrestha" target="_blank" rel="noopener noreferrer">Kaggle</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Bhanu Shrestha</span>
+    <span class="mono">Kathmandu · UTC+05:45</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    var sun = document.getElementById('icon-sun');
+    var moon = document.getElementById('icon-moon');
+
+    function systemDark() {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      if (t === 'dark') return true;
+      if (t === 'light') return false;
+      return systemDark();
+    }
+    function paintIcon() {
+      var dark = isDark();
+      sun.hidden = dark;
+      moon.hidden = !dark;
+      btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    try {
+      var saved = localStorage.getItem('bs-theme');
+      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+    } catch (e) {}
+    paintIcon();
+
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('bs-theme', next); } catch (e) {}
+      paintIcon();
+    });
+
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      var onChange = function () { if (!root.getAttribute('data-theme')) paintIcon(); };
+      if (mq.addEventListener) mq.addEventListener('change', onChange);
+    }
+
+    // nav highlighting
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var targets = Object.keys(map).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    if ('IntersectionObserver' in window && targets.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            links.forEach(function (a) { a.classList.remove('active'); });
+            if (map[en.target.id]) map[en.target.id].classList.add('active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      targets.forEach(function (t) { io.observe(t); });
+    }
+  })();
+</script>
+
+</body>
+</html>
